@@ -14,8 +14,9 @@ def iris_data():
 @pytest.fixture
 def california_data():
     X = pd.DataFrame(np.random.rand(100, 8), columns=[f"feature_{i}" for i in range(8)])
-    y = pd.Series(np.random.rand(100))
-    return X, y, 'regression'
+    y = pd.Series(np.random.rand(100), name='target')
+    df = pd.concat([X, y], axis=1)
+    return df, 'target', 'regression'
 
 def test_classification_pipeline(iris_data):
     df, target, problem_type = iris_data
