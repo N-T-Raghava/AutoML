@@ -2,8 +2,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris, make_regression
-from automl.preprocess import DataCleaner
-from automl.core import AutoML
+from automl.core import AutoML, DataCleaner
 
 @pytest.fixture
 def iris_data():
