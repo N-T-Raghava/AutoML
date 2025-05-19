@@ -16,6 +16,15 @@ model = AutoML(df, target='target_column')
 model.run()
 ```
 
+## Data Cleaning
+
+```python
+from automl.preprocessing import DataCleaner
+
+cleaner = DataCleaner()
+df_cleaned = cleaner.clean(df)
+```
+
 ## Install
 
 ```bash

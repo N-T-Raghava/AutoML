@@ -2,6 +2,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris, make_regression
+from automl.preprocess import DataCleaner
 from automl.core import AutoML
 
 @pytest.fixture
@@ -50,3 +51,15 @@ def test_empty_dataframe():
     df = pd.DataFrame()
     with pytest.raises(ValueError):
         AutoML(df, 'target', 'classification').run()
+
+def test_clean():
+    df = pd.DataFrame({
+        'A': [1, 2, 2, None],
+        'B': ['a', 'b', 'b', 'b'],
+        'C': [1, 1, 1, 1]
+    })
+    cleaner = DataCleaner(verbose=False)
+    df_cleaned = cleaner.clean(df)
+    assert df_cleaned.isnull().sum().sum() == 0
+    assert 'C' not in df_cleaned.columns
+    assert df_cleaned.shape[0] == 3
