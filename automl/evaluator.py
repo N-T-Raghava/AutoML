@@ -9,7 +9,11 @@ def evaluate_models(models, X_train, y_train, X_test, y_test, cv, scoring):
         y_pred = model.predict(X_test)
 
         if scoring == 'auto':
-            score = accuracy_score(y_test, y_pred) if len(set(y_test)) <= 20 else mean_squared_error(y_test, y_pred, squared=False)
+            if len(set(y_test)) <= 20:
+              score = accuracy_score(y_test, y_pred)
+            else:
+             # Use RMSE manually if squared=False is unsupported
+             score = np.sqrt(mean_squared_error(y_test, y_pred))
             score_name = 'Accuracy' if len(set(y_test)) <= 20 else 'RMSE'
         elif scoring == 'rmse':
             score = mean_squared_error(y_test, y_pred, squared=False)
