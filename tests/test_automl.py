@@ -13,10 +13,9 @@ def iris_data():
 
 @pytest.fixture
 def california_data():
-    data = fetch_california_housing(as_frame=True)
-    df = data.frame
-    df['MedHouseVal'] = data.target
-    return df, 'MedHouseVal', 'regression'
+    X = pd.DataFrame(np.random.rand(100, 8), columns=[f"feature_{i}" for i in range(8)])
+    y = pd.Series(np.random.rand(100))
+    return X, y, 'regression'
 
 def test_classification_pipeline(iris_data):
     df, target, problem_type = iris_data

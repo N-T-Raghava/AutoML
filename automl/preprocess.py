@@ -3,6 +3,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 def preprocess_data(df, target, problem_type):
+    if target not in df.columns:
+        raise ValueError(f"Target column '{target}' not found in dataframe.")
+    if df.empty:
+        raise ValueError("Input dataframe is empty.")
+    
+    X = df.drop(columns=[target])
+    y = df[target]
+    
     X = df.drop(columns=[target])
     y = df[target]
 
