@@ -5,7 +5,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
-        'numpy', 'pandas', 'scikit-learn', 'matplotlib', 'seaborn'
+        'numpy', 'pandas', 'scikit-learn', 'matplotlib', 'seaborn', 'pytest'
     ],
     description='AutoML library that selects the best model automatically.',
     author='Tanmai Raghava',
