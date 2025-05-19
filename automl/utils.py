@@ -1,2 +1,2 @@
 def log(msg):
-    print(f"[SmartML] {msg}")
+    print(f"[AutoML] {msg}")
