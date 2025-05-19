@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 dev = ["pytest"]
 
 [project]
-name = "automl"
+name = "automl-kit"
 version = "0.1.0"
 description = "A lightweight AutoML framework"
 readme = "README.md"
