@@ -1,4 +1,3 @@
-from .core import AutoML
-from .preprocess import DataCleaner
+from .core import AutoML, DataCleaner
 
 __all__ = ['AutoML', 'DataCleaner']
