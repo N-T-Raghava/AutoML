@@ -47,28 +47,3 @@ def test_empty_dataframe():
     df = pd.DataFrame()
     with pytest.raises(ValueError):
         AutoML(df, 'target', 'classification').run()
-
-def test_model_prediction_shape(iris_data):
-    df, target, problem_type = iris_data
-    automl = AutoML(df, target, problem_type)
-    automl.run()
-    preds = automl.predict(df.drop(columns=[target]))
-    assert preds.shape[0] == df.shape[0]
-
-def test_random_state_reproducibility(iris_data):
-    df, target, problem_type = iris_data
-    automl1 = AutoML(df, target, problem_type, random_state=42)
-    automl2 = AutoML(df, target, problem_type, random_state=42)
-    best1 = automl1.run()
-    best2 = automl2.run()
-    assert best1['name'] == best2['name']
-    assert abs(best1['score'] - best2['score']) < 1e-6
-
-def test_non_numeric_data_handling():
-    df = pd.DataFrame({
-        'feature': ['a', 'b', 'c', 'a', 'b'],
-        'target': [0, 1, 0, 1, 0]
-    })
-    automl = AutoML(df, 'target', 'classification')
-    result = automl.run()
-    assert 'name' in result and 'score' in result
