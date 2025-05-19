@@ -19,7 +19,7 @@ class AutoML:
         self.problem_type = problem_type
 
         models = get_models(problem_type)
-        results = evaluate_models(models, X_train, y_train, X_test, y_test, self.cv, self.scoring)
+        results = evaluate_models(models, X_train, y_train, X_test, y_test, self.cv, self.scoring, self.problem_type)
         best_model = select_best_model(results)
 
         print(f"\nBest Model: {best_model['name']}")
