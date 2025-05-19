@@ -8,5 +8,4 @@ def plot_metrics(results, problem_type):
     plt.xlabel('Score')
     plt.title('Model Performance Comparison')
     plt.tight_layout()
-    plt.savefig('model_comparison.png')
     plt.show()
