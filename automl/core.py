@@ -3,7 +3,7 @@ from .models import get_models
 from .evaluator import evaluate_models, select_best_model
 from .visualizer import plot_metrics
 
-class SmartML:
+class AutoML:
     def __init__(self, df, target, problem_type=None, test_size=0.2, cv=5, scoring='auto'):
         self.df = df
         self.target = target
