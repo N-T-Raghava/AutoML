@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 dev = ["pytest"]
 
 [project]
-name = "automl-kit"
-version = "0.1.3"
+name = "mlsherpa"
+version = "0.1.1"
 description = "A lightweight AutoML framework"
 readme = "README.md"
 authors = [
