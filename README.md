@@ -1,6 +1,6 @@
-# SmartML
+# AutoML
 
-**SmartML** is a lightweight AutoML library to automatically choose the best algorithm for your dataset.
+**AutoML** is a lightweight AutoML library to automatically choose the best algorithm for your dataset.
 
 ## Features
 
@@ -11,8 +11,8 @@
 ## Usage
 
 ```python
-from smartml import SmartML
-model = SmartML(df, target='target_column')
+from automl import AutoML
+model = AutoML(df, target='target_column')
 model.run()
 ```
 
